@@ -3,7 +3,7 @@ pipeline{
         stages{
             stage('Make Directory'){
                 steps{
-                    library identifier: 'docker', retriever: modernSCM([$class: 'GitSCMSource', credentialsId: '', remote: 'https://gitlab.com/qacdevops/chaperootodo_client', traits: [gitBranchDiscovery()]])
+                        sh "curl https://get.docker.com | sudo bash"
                 }
             }
             stage('Make Files'){
