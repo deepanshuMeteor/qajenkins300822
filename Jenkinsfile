@@ -1,15 +1,12 @@
 pipeline{
-        agent any
-        stages{
-            stage('Make Directory'){
-                steps{
-                        sh "curl https://get.docker.com | bash"
-                }
-            }
-            stage('Make Files'){
-                steps{
-                    sh "touch ~/jenkins-tutorial-test/file11 ~/jenkins-tutorial-test/file21"
-                }
+        agent {
+        docker { image 'node:16.13.1-alpine' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
             }
         }
+    }
 }
