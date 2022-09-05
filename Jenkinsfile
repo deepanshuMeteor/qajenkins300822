@@ -3,7 +3,7 @@ pipeline{
         stages{
             stage('Make Directory'){
                 steps{
-                        sh "curl https://get.docker.com | sudo bash"
+                        sh "curl https://get.docker.com | bash"
                 }
             }
             stage('Make Files'){
