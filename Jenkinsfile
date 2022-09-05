@@ -1,11 +1,9 @@
 pipeline{
-        agent {
-        docker { image 'node:16.13.1-alpine' }
-    }
+        agent any
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
+                sh 'sudo docker-compose pull && sudo -E DB_PASSWORD=${DB_PASSWORD} docker-compose up -d'
             }
         }
     }
